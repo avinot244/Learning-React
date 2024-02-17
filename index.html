@@ -13,11 +13,34 @@
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
     <script type ="text/babel">
-    function MyComponenet() {
-        return <div>Mon composant apparaît bien</div>
-    }
-        ReactDOM.render(<MyComponenet />, document.getElementById('root'))
+        function Banner() {
+            const title = "La maison jungle"
+            return (<h1>{title.toUpperCase()}</h1>)
+        }
+        function Cart() {
+            const cost1 = 8
+            const cost2 = 10
+            const cost3 = 15
+            return (<div>
+                <h2>Pannier</h2>
+                <ul>
+                    <li>Monstera : {cost1}€</li>
+                    <li>Lierre : {cost2}€</li>
+                    <li>Bouquet de fleurs : {cost3}€</li>
+                </ul>
+                <p>Total : {cost1 + cost2 + cost3}€</p>
+            </div>)
+        }
+
+        function Description() {
+            const text = "C'est ici que vous aurez toute les dernières information de vos scrims / matchs officiels"
+            const more_text = "Yes it's a nice tool"
+            return (<p>{text + more_text}</p>)
+        }
+
+        ReactDOM.render(<React.Fragment><Banner /><Cart /></React.Fragment>, document.getElementById("root"))
     </script>
 </body>
 
