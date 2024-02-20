@@ -1,26 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './styles/App.css';
 import Banner from './Components/Banner'
+import Cart from "./Components/Cart"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          My Awesome react App
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <React.StrictMode>
       <Banner />
-    </div>
+      <Cart />
+    </React.StrictMode>
   );
 }
 
