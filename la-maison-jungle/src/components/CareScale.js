@@ -1,6 +1,14 @@
 import Sun from '../assets/sun.svg'
 import Water from '../assets/water.svg'
 
+// Ici, il s'agit d'une manière de faire.
+//Vous auriez aussi pu utiliser une fonction qui retourne l'élément souhaité, ou bien faire directement des conditions
+const quantityLabel = {
+	1: 'peu',
+	2: 'modérément',
+	3: 'beaucoup'
+}
+
 function CareScale({ scaleValue, careType }) {
 	const range = [1, 2, 3]
 	const scaleType =
@@ -11,7 +19,15 @@ function CareScale({ scaleValue, careType }) {
 		)
 
 	return (
-		<div onClick={() => handleCareClick(careType, scaleValue)}>
+		<div
+			onClick={() =>
+				alert(
+					`Cette plante requiert ${quantityLabel[scaleValue]} ${
+						careType === 'light' ? 'de lumière' : "d'arrosage"
+					}`
+				)
+			}
+		>
 			{range.map((rangeElem) =>
 				scaleValue >= rangeElem ? (
 					<span key={rangeElem.toString()}>{scaleType}</span>
@@ -21,21 +37,4 @@ function CareScale({ scaleValue, careType }) {
 	)
 }
 
-function handleCareClick(careType, scaleValue) {
-	var care = ""
-	var careTodo = ""
-	if (scaleValue === 1) {
-		care = "peu"
-	}else if (scaleValue === 2) {
-		care = "modérement"
-	}else if (scaleValue === 3) {
-		care = "beaucoup"
-	}
-
-	careType === 'light' ?
-	(careTodo = "de lumière")
-	:
-	(careTodo = "d'arrosage")
-	alert(`Cette plante requiert ${care} ${careTodo}`)
-}
 export default CareScale
